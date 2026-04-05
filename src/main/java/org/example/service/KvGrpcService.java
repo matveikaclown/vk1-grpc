@@ -93,7 +93,6 @@ public class KvGrpcService extends KvServiceGrpc.KvServiceImplBase {
             }
             responseObserver.onCompleted();
         } catch (Exception e) {
-            e.printStackTrace();
             responseObserver.onError(Status.INTERNAL.withDescription(e.getMessage()).asRuntimeException());
         }
     }

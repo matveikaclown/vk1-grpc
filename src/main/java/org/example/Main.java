@@ -11,7 +11,7 @@ import org.example.service.KvGrpcService;
 
 public class Main {
     public static void main(String[] args) {
-        try (TarantoolConfig config = new TarantoolConfig();) {
+        try (TarantoolConfig config = new TarantoolConfig()) {
             KvRepository repository = new KvRepository(config.getClient());
 
             // ==========================================================
@@ -36,7 +36,6 @@ public class Main {
             server.awaitTermination();
         } catch (Exception e) {
             System.err.println("Critical error: " + e.getMessage());
-            e.printStackTrace();
         }
     }
 }

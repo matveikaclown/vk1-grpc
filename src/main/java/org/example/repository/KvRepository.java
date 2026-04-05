@@ -46,15 +46,6 @@ public class KvRepository {
                     }
                 }
             }
-            else if (firstTuple instanceof List<?> fields && fields.size() > 1) {
-                Object valueObj = fields.get(1);
-                if (valueObj == null) {
-                    return null;
-                }
-                if (valueObj instanceof byte[] bytes) {
-                    return bytes;
-                }
-            }
         }
 
         return null;

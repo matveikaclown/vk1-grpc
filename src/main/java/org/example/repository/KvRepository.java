@@ -35,11 +35,11 @@ public class KvRepository {
             Object firstTuple = tuples.get(0);
 
             if (firstTuple instanceof Tuple<?> tuple) {
-                Object tupleData = tuple.get();                    // ← главный метод
+                Object tupleData = tuple.get();
                 if (tupleData instanceof List<?> fields && fields.size() > 1) {
-                    Object valueObj = fields.get(1);               // индекс 1 = value
+                    Object valueObj = fields.get(1);
                     if (valueObj == null) {
-                        return null;                               // null разрешён заданием
+                        return null;
                     }
                     if (valueObj instanceof byte[] bytes) {
                         return bytes;

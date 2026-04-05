@@ -23,7 +23,12 @@
 
 ## Запуск проекта
 
-///
+1. Запустите контейнер
+> `docker compose up -d`
+2. Соберите проект и запустите gRPC сервер
+> mvn compile exec:java "-Dexec.mainClass=org.example.Main"
+
+Сервер будет доступен на порту 9090
 
 ## Тестирование (Powershell)
 
@@ -62,13 +67,16 @@
 
 -----
 
-### Для заполнения базы данных 5_000_000 записями можно раскомментировать блок инициализации в Main.java, а после протестировать следующим методом.
->
-> Measure-Command {
-> 
->     $results = grpcurl -plaintext -d '{\"key_since\": \"key_00\", \"key_to\": \"key_01\"}' localhost:9090 kv.KvService/Range
->     $results | Select-Object -First 20 | Out-Host
->     $objectCount = ($results | Select-String -Pattern '"key":').Count
->     Write-Host $objectCount
-> 
-> }
+### Для заполнения базы данных 5_000_000 записями можно раскомментировать блок инициализации в `Main.java`, а после протестировать следующим методом.
+
+```powershell
+Measure-Command {
+
+    $results = grpcurl -plaintext -d '{\"key_since\": \"key_00\", \"key_to\": \"key_01\"}' localhost:9090 kv.KvService/Range
+    $results | Select-Object -First 20 | Out-Host
+    $objectCount = ($results | Select-String -Pattern '"key":').Count
+    Write-Host $objectCount
+
+}
+```
+Будут выведены первые 5 пар ключ-значение, затем будет выведено общее количество найденных записей, а затем время выполнения 

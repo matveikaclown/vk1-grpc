@@ -24,7 +24,7 @@
 ## Запуск проекта
 
 1. Запустите контейнер
-> `docker compose up -d`
+> docker compose up -d
 2. Соберите проект и запустите gRPC сервер
 > mvn compile exec:java "-Dexec.mainClass=org.example.Main"
 
@@ -35,34 +35,48 @@
 Используйте следующие команды для проверки стандартных методов
 
 ### put (сохранение):
-* grpcurl -plaintext -d '{\"key\": \"test\", \"value\": \"SGVsbG8=\"}' localhost:9090 kv.KvService/Put
-* grpcurl -plaintext -d '{\"key\": \"null\"}' localhost:9090 kv.KvService/Put
+```powershell
+grpcurl -plaintext -d '{\"key\": \"test\", \"value\": \"SGVsbG8=\"}' localhost:9090 kv.KvService/Put
+grpcurl -plaintext -d '{\"key\": \"null\"}' localhost:9090 kv.KvService/Put
+```
+
 
 ### get (получение):
-* grpcurl -plaintext -d '{\"key\": \"test\"}' localhost:9090 kv.KvService/Get
-* grpcurl -plaintext -d '{\"key\": \"null\"}' localhost:9090 kv.KvService/Get
+```powershell
+grpcurl -plaintext -d '{\"key\": \"test\"}' localhost:9090 kv.KvService/Get 
+grpcurl -plaintext -d '{\"key\": \"null\"}' localhost:9090 kv.KvService/Get
+```
+
 
 ### count (подсчет общего количества):
-* grpcurl -plaintext localhost:9090 kv.KvService/Count
+```powershell
+grpcurl -plaintext localhost:9090 kv.KvService/Count
+```
 
 ### delete (удаление):
-* grpcurl -plaintext -d '{\"key\": \"test\"}' localhost:9090 kv.KvService/Delete
+```powershell
+grpcurl -plaintext -d '{\"key\": \"test\"}' localhost:9090 kv.KvService/Delete
+```
 
 ### put (вставка 10 значений сразу):
-* grpcurl -plaintext -d '{\"key\": \"a\", \"value\": \"YQ==\"}' localhost:9090 kv.KvService/Put
-  grpcurl -plaintext -d '{\"key\": \"b\", \"value\": \"Yg==\"}' localhost:9090 kv.KvService/Put
-  grpcurl -plaintext -d '{\"key\": \"c\", \"value\": \"Yw==\"}' localhost:9090 kv.KvService/Put
-  grpcurl -plaintext -d '{\"key\": \"d\", \"value\": \"ZA==\"}' localhost:9090 kv.KvService/Put
-  grpcurl -plaintext -d '{\"key\": \"e\", \"value\": \"ZQ==\"}' localhost:9090 kv.KvService/Put
-  grpcurl -plaintext -d '{\"key\": \"f\", \"value\": \"Zg==\"}' localhost:9090 kv.KvService/Put
-  grpcurl -plaintext -d '{\"key\": \"g\", \"value\": \"Zw==\"}' localhost:9090 kv.KvService/Put
-  grpcurl -plaintext -d '{\"key\": \"h\", \"value\": \"aA==\"}' localhost:9090 kv.KvService/Put
-  grpcurl -plaintext -d '{\"key\": \"i\", \"value\": \"aQ==\"}' localhost:9090 kv.KvService/Put
-  grpcurl -plaintext -d '{\"key\": \"j\", \"value\": \"ag==\"}' localhost:9090 kv.KvService/Put
+```powershell 
+grpcurl -plaintext -d '{\"key\": \"a\", \"value\": \"YQ==\"}' localhost:9090 kv.KvService/Put
+grpcurl -plaintext -d '{\"key\": \"b\", \"value\": \"Yg==\"}' localhost:9090 kv.KvService/Put
+grpcurl -plaintext -d '{\"key\": \"c\", \"value\": \"Yw==\"}' localhost:9090 kv.KvService/Put
+grpcurl -plaintext -d '{\"key\": \"d\", \"value\": \"ZA==\"}' localhost:9090 kv.KvService/Put
+grpcurl -plaintext -d '{\"key\": \"e\", \"value\": \"ZQ==\"}' localhost:9090 kv.KvService/Put
+grpcurl -plaintext -d '{\"key\": \"f\", \"value\": \"Zg==\"}' localhost:9090 kv.KvService/Put
+grpcurl -plaintext -d '{\"key\": \"g\", \"value\": \"Zw==\"}' localhost:9090 kv.KvService/Put
+grpcurl -plaintext -d '{\"key\": \"h\", \"value\": \"aA==\"}' localhost:9090 kv.KvService/Put
+grpcurl -plaintext -d '{\"key\": \"i\", \"value\": \"aQ==\"}' localhost:9090 kv.KvService/Put
+grpcurl -plaintext -d '{\"key\": \"j\", \"value\": \"ag==\"}' localhost:9090 kv.KvService/Put
+```
 
 ### range (получение диапазона):
-* grpcurl -plaintext -d '{\"key_since\": \"a\", \"key_to\": \"j\"}' localhost:9090 kv.KvService/Range
-* grpcurl -plaintext -d '{\"key_since\": \"c\", \"key_to\": \"h\"}' localhost:9090 kv.KvService/Range
+```powershell
+grpcurl -plaintext -d '{\"key_since\": \"a\", \"key_to\": \"j\"}' localhost:9090 kv.KvService/Range
+grpcurl -plaintext -d '{\"key_since\": \"c\", \"key_to\": \"h\"}' localhost:9090 kv.KvService/Range
+```
 
 
 -----

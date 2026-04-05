@@ -1,6 +1,8 @@
 services:
   tarantool:
     image: tarantool/tarantool:3.2
+    environment:
+      - TT_MEMTX_MEMORY=1073741824
     container_name: tarantool-kv
     ports:
       - "3301:3301"

@@ -1,6 +1,5 @@
 box.cfg{
     listen = 3301,
-    memtx_memory = 1024 * 1024 * 1024  -- 1 ГБ
 }
 
 box.once("schema_init", function()
